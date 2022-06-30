@@ -48,6 +48,11 @@ void CAsset::setType(ASSET_TYPE type)
 	tType = type;
 }
 
+void CAsset::setCurrency(CURRENCY_TYPE currency)
+{
+	tCurrency = currency;
+}
+
 void CAsset::setBuyPrice(double price)
 {
 	dBuyPrice = price;
@@ -61,6 +66,11 @@ std::string CAsset::getName()
 CAsset::ASSET_TYPE CAsset::getType()
 {
 	return tType;
+}
+
+CAsset::CURRENCY_TYPE CAsset::getCurrency()
+{
+	return tCurrency;
 }
 
 double CAsset::getBuyPrice()

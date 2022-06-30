@@ -46,14 +46,17 @@ public:
 		   	   ~CAsset();
 
 enum 			ASSET_TYPE {stock, bond, realestate};
+enum 			CURRENCY_TYPE {EUR, USD, GBP};
 
 void			setName(std::string namme);
 void			setType(ASSET_TYPE type);
+void 			setCurrency(CURRENCY_TYPE currency);
 void 			setBuyPrice(double price);		
 
 
 std::string 	getName();
 ASSET_TYPE		getType();
+CURRENCY_TYPE	getCurrency();
 double 			getBuyPrice();
 
 double			getCurrentPrice();
@@ -67,7 +70,7 @@ double  		dBuyPrice;
 double  		dCurrentPrice;
 
 ASSET_TYPE		tType = stock;
-
+CURRENCY_TYPE	tCurrency = USD;
 
 
 double 			retrieveCurrentPrice();
