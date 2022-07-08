@@ -27,6 +27,9 @@ public:
 
 private:
 	std::vector<CAsset> list;
+
+	CAsset::ASSET_TYPE 		portAssetTypeInput(std::string input);
+	CAsset::CURRENCY_TYPE 	portCurrencyTypeInput(std::string input);
 };
 
 #endif
