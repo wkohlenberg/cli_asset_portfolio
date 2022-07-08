@@ -27,10 +27,14 @@ double CStock::getQuantity()
 
 
 
+std::array<std::string, 5> const CAsset::Array::strAssetType {"stock", "bond", "estate", "other", "none"};
+std::array<std::string, 5> const CAsset::Array::strCurrencyType {"USD", "EUR", "GBP", "other", "none"};
+
+
 
 CAsset::CAsset()
 {
-
+	sName = "";
 }
 
 CAsset::~CAsset()
