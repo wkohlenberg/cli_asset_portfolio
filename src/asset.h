@@ -1,10 +1,13 @@
 #ifndef __ASSET_H_
 #define __ASSET_H_
 
+#include <array>
+
 /*
 	Asset class contains all the information of the asset. Keep in mind this is not only
 	for stocks. But also for cash and real estate.
 */
+
 
 class CStock
 {
@@ -45,8 +48,17 @@ public:
 				CAsset();
 		   	   ~CAsset();
 
-enum 			ASSET_TYPE {stock, bond, realestate};
-enum 			CURRENCY_TYPE {EUR, USD, GBP};
+static constexpr int  	ASSET_TYPE_SIZE = 5;
+static constexpr int  	CURRENCY_TYPE_SIZE = 5;
+
+enum 			ASSET_TYPE {AT_STOCK, AT_BOND, AT_ESTATE, AT_OTHER, AT_NONE};
+enum 			CURRENCY_TYPE {CT_USD, CT_EUR, CT_GBP, CT_OTHER, CT_NONE};
+
+struct Array {
+	    static std::array<std::string, 5> const strAssetType;
+	    static std::array<std::string, 5> const strCurrencyType;
+};
+
 
 void			setName(std::string namme);
 void			setType(ASSET_TYPE type);
@@ -69,8 +81,8 @@ std::string 	sName;
 double  		dBuyPrice;
 double  		dCurrentPrice;
 
-ASSET_TYPE		tType = stock;
-CURRENCY_TYPE	tCurrency = USD;
+ASSET_TYPE		tType = AT_NONE;
+CURRENCY_TYPE	tCurrency = CT_USD;
 
 
 double 			retrieveCurrentPrice();
