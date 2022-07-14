@@ -10,6 +10,7 @@ int main()
 
 	CPortfolio portfolio;
 
+	portfolio.loadList();
 	portfolio.addAsset();
 	portfolio.printPortfolio();
 
