@@ -16,6 +16,8 @@ public:
 				CPortfolio();
 		   	   ~CPortfolio();
 
+	int 		loadList();
+
 	int 		addAsset();
 	int 		deleteAsset();
 	int 		modifyAsset();

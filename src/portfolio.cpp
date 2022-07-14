@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 #include <sstream>
 
 #include "portfolio.h"
@@ -13,6 +14,78 @@ CPortfolio::~CPortfolio()
 {
 
 }
+
+int CPortfolio::loadList()
+{
+	std::ifstream dataFile("data/portfolio.txt");
+
+	std::string strIdentifier;
+	std::string strName;
+	std::string strTicker;
+	std::string strType;
+	std::string strCurrency;
+	double dPrice;
+	int iQty;
+
+
+	std::string line;
+	std::stringstream ss;
+
+	std::getline (dataFile, line);
+
+	ss << line;
+	ss >> strIdentifier;
+	ss.clear();
+
+	std::getline (dataFile, line);
+
+	ss << line;
+	ss >> strName;
+	ss.clear();
+
+	std::getline (dataFile, line);
+
+	ss << line;
+	ss >> strTicker;
+	ss.clear();
+
+	std::getline (dataFile, line);
+
+	ss << line;
+	ss >> strType;
+	ss.clear();
+
+	std::getline (dataFile, line);
+
+	ss << line;
+	ss >> strCurrency;
+	ss.clear();
+
+	std::getline (dataFile, line);
+
+	std::istringstream iss(line);
+	iss >> dPrice;
+	iss.clear();
+
+	std::getline (dataFile, line);
+
+	iss.str(line);
+	iss >> iQty;
+	iss.clear();
+
+
+	std::cout << strIdentifier << std::endl;
+	std::cout << strName << std::endl;
+	std::cout << strTicker << std::endl;
+	std::cout << strType << std::endl;
+	std::cout << strCurrency << std::endl;
+	std::cout << dPrice << std::endl;
+	std::cout << iQty << std::endl;
+
+
+	return 0;
+}
+
 
 int CPortfolio::addAsset()
 {
